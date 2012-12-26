@@ -1,0 +1,16 @@
+MANGA
+
+Bunch of lua scripts for fetching and assembling manga sources for
+reading on my kobo !
+
+* Usage
+
+	Fetches One Piece 692 and 693, produces an assembly of all
+	downloaded issues:
+
+	=./manga.lua --name one-piece --fetch 692 --fetch 693 --assemble_all=
+	
+* TODO
+
+
+
