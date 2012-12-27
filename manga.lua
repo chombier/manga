@@ -7,7 +7,6 @@ local ltn12 = require("ltn12")
 
 local manga = {}
 
-
 function manga.load( name )
 	 local res = require(name)
 	 
@@ -26,7 +25,7 @@ local function get(url, out)
 	 
 
 	 -- bogus status
-	 if h.location or c == 300 then 
+	 if h.location or c == 300 or c == 404 then 
 			res = false
 			print('', 'derp!')
 	 else
@@ -48,28 +47,23 @@ function manga.fetch( name, issue )
 	 
 	 local conf = manga.load( name )
 
-	 local skip = nil
-
 	 local s, e = conf.pages( issue )
 	 for p = s, e do
-			if skip then
-				 skip = nil
-			else
-				 local url = conf.url(issue, p)
-				 local out = dir .. '/' .. conf.basename(p)
+			local url = conf.url(issue, p)
+			local out = dir .. '/' .. conf.basename(p)
+			
+			if not get(url, out) then
 				 
-				 if not get(url, out) then
-
-						-- let's try double page instead
-						url = conf.url(issue, p, true)
-						out = dir .. '/' .. conf.basename(p, true)
+				 -- let's try alternate url instead
+				 url = conf.url(issue, p, true)
+				 out = dir .. '/' .. conf.basename(p, true)
+				 
+				 if get( url, out ) then
+						-- great success
 						
-						if get( url, out ) then
-							 skip = true
-						else
-							 -- warning: premature exit
-							 print('warning: page ' .. p ..' not found' )
-						end
+				 else
+						-- warning: premature exit
+						print('warning: page ' .. p ..' not found' )
 				 end
 			end
 	 end

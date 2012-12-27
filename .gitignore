@@ -1,3 +1,4 @@
 *.jpg
 *.cbz
 *~
+/gunnm-last-order/data.lua
