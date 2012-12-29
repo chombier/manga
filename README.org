@@ -1,8 +1,8 @@
 * MANGA
 
 Some lua scripts for fetching and assembling online manga for reading
-on my kobo touch. It automatically resizes pictures to 600x800 and rotates to
-portrait, outputs =.cbz= files.
+on my kobo touch. Automatically resizes pictures to 600x800 and rotates to
+portrait when needed. Outputs =.cbz= files.
 
 * Installation
 
