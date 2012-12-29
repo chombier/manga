@@ -13,7 +13,7 @@ portrait, outputs =.cbz= files.
 
 * Usage
 
-	Look at the example scripts (/e.g/ =one-piece.lua=) to figure out
+	Look at the example scripts (/e.g/ =one-piece.lua= ) to figure out
 	how to add a new title. Then it goes like:
 	
 	=./manga.lua --name one-piece --fetch 692 --fetch 693 --assemble_all=
