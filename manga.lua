@@ -7,6 +7,14 @@ local ltn12 = require("ltn12")
 
 local manga = {}
 
+function manga.prepare()
+	 -- install luarocks
+	 os.execute('sudo apt-get install luarocks imagemagick')
+
+	 -- install luasocket
+	 os.execute('luarocks --local install LuaSocket')
+end
+
 function manga.load( name )
 	 local res = require(name)
 	 
@@ -216,6 +224,10 @@ local cmd = {
 	 ['--name'] = function(context, i , arg)
 									 context.name = arg[i + 1]
 								end,
+	 
+	 ['--prepare'] = function(context, i, arg) 
+											manga.prepare()
+									 end,
 }
 
 

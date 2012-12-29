@@ -1,14 +1,26 @@
 MANGA
 
-Bunch of lua scripts for fetching and assembling manga sources for
-reading on my kobo !
+Some lua scripts for fetching and assembling online manga for reading
+on my kobo touch. It automatically resizes pictures to 600x800 and rotates to
+portrait, outputs =.cbz= files.
+
+* Installation
+
+	You need =luarocks= and =imagemagick= for this to work. This should
+	install everything on debian/ubuntu: 
+	
+	=./manga.lua --prepare=
 
 * Usage
 
-	Fetches One Piece 692 and 693, produces an assembly of all
-	downloaded issues:
-
+	Look at the example scripts =one-piece.lua= to figure out how to add
+	a new title. Then it goes like:
+	
 	=./manga.lua --name one-piece --fetch 692 --fetch 693 --assemble_all=
+	
+	Or, more complicated:
+
+	=./manga.lua --name one-piece --fetch_all --assemble 693 --name gunnm-last-order --fetch 114 --assemble_all=
 	
 * TODO
 
