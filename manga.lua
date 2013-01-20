@@ -12,7 +12,7 @@ function manga.prepare()
 	 os.execute('sudo apt-get install luarocks imagemagick')
 
 	 -- install luasocket
-	 os.execute('luarocks --local install LuaSocket')
+	 os.execute('luarocks --local install LuaSocket LuaXML')
 end
 
 function manga.load( name )
